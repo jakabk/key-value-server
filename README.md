@@ -7,3 +7,8 @@
 client, etc.)
 
 ## How to run the tests (if there are any)
+
+## For implementing TCP connection interface these resources were used
+- https://pymotw.com/3/socket/tcp.html
+- https://realpython.com/python-sockets/#echo-client-and-server
+- https://stackoverflow.com/a/17668009/2553200
