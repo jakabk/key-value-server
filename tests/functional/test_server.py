@@ -18,7 +18,7 @@ def server():
     except Exception as exc:
         print('Error', type(exc), str(exc))
 
-    time.sleep(0.1)
+    time.sleep(0.5)
 
     yield
 
