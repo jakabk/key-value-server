@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+import argparse
+import sys
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument(
+    '-o', '--host',
+    default = '0.0.0.0',
+    help = 'IP address of the key-value server'
+)
+
+parser.add_argument(
+    '-p', '--port',
+    default = 5555,
+    help = 'port of the key-value server '
+)
+
+parser.add_argument(
+    '-t', '--test',
+    action = 'store_true',
+    default = False,
+    help = 'is used from tests'
+)
+
+parser.add_argument(
+    '-d', '--db-path',
+    default = '/tmp/key-value.db',
+    help = 'path of the key-value database file'
+)
+
+args = parser.parse_args()
+
+from key_value_server.server import Server
+from key_value_server.store import Store
+
+try:
+    server = Server(args.host, args.port, Store(args.db_path if not args.test else '/tmp/test-key-value.db', not args.test))
+    server.run()
+except KeyboardInterrupt:
+    print('Exit')
+    sys.exit(0)

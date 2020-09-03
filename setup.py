@@ -24,4 +24,7 @@ setup(
         "Operating System :: POSIX:: Linux",
     ],
     python_requires = '>=3.7',
+    scripts = [
+        'bin/start-server'
+    ],
 )
