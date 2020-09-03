@@ -1,0 +1,3 @@
+[run]
+include = */key_value_server/*
+omit = */tests/*
